@@ -6,7 +6,7 @@ let loadImage = (src, callback) =>{
     img.src = src;
 };
 let imagePath = (frameno, animation) =>{
-    //return "\images/idle/"+ frameno+".png";
+
     return "\images/"+animation+"/"+ frameno+".png";
 };
 let frames = {
@@ -61,18 +61,7 @@ let animate = (ctx, images,animation, callback) =>{
     setTimeout(callback, images[animation].length * 100);
 
 };
-/*
-var img = document.createElement("img");
 
-img.onload = () => {
-   ctx.drawImage(img, 0, 0, 500,500);
-};
-img.src = "\images/idle.png";
-*/
-//loadImage("\images/idle/1.png", (img) =>{ctx.drawImage(img, 0, 0, 500,500);});
-//loadImage(imagePath(1), (img) =>{ctx.drawImage(img, 0, 0, 500,500);});
-
-//loadImages((images) =>{ctx.drawImage(images[1], 0, 0, 500,500);});
 loadImages((images) =>{
 
     let queuedAnimations = [];
@@ -92,16 +81,16 @@ loadImages((images) =>{
     };
     aux();
     document.getElementById("kick").onclick = () =>{
-      //  selectedAnimation = "kick";
+
       queuedAnimations.push("kick");
     };
     document.getElementById("punch").onclick = () =>{
-        //selectedAnimation = "punch";
+
         queuedAnimations.push("punch");
     };
     document.addEventListener("keyup", (event) => {
         const key = event.key; 
-        // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+    
         if(key === "ArrowLeft")
         {
             queuedAnimations.push("backward");
@@ -124,18 +113,14 @@ loadImages((images) =>{
         }
     });
     document.getElementById("forward").onclick = () =>{
-        //  selectedAnimation = "kick";
+   
         queuedAnimations.push("forward");
       };
       document.getElementById("backward").onclick = () =>{
-        //  selectedAnimation = "kick";
         queuedAnimations.push("backward");
       };
       document.getElementById("block").onclick = () =>{
-        //  selectedAnimation = "kick";
         queuedAnimations.push("block");
       };
-   /* animate(ctx, images,"punch", () =>{
-        console.log("done");
-    });*/
+
 });
